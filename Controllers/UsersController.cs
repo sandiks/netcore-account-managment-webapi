@@ -80,10 +80,14 @@ namespace AccountManagmentSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            if (user.MonthlySalary - user.MonthlyExpenses < 1000)
+            {
+                throw new ArgumentException($"User with id:{user.Id} has wrong monthly salary and expenses conditions");
+            }
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
         // DELETE: api/Users/5
