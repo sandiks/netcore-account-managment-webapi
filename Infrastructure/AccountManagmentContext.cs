@@ -11,12 +11,17 @@ namespace AccountManagmentSystem.Infrastructure
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            builder.Entity<Account>()
+                .HasOne(a => a.User);
         }
+
     }
 }

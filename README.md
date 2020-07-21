@@ -6,8 +6,8 @@ create an account.
 This should be implemented with an API and database.
 
 Business Requirements:
- Should not allow more than one user with the same email address
- Zip Pay allows credit for up to $1000, so if monthly salary - monthly expenses is less than
+* Should not allow more than one user with the same email address
+* Zip Pay allows credit for up to $1000, so if monthly salary - monthly expenses is less than
 $1000 we should not create an account for the user and return an error
 
 Tech stack requirements:
@@ -18,21 +18,27 @@ else, that's okay too :)
 
 API requirements
 1. The following Endpoints are required:
-o Create user
- Fields to be provided and persist
- Name
- Email Address (Must be unique)
- Monthly Salary (Must be a positive number - for simplicity, pretend there is
-no such thing as income tax)
- Monthly Expenses (Must be a positive number)
 
-o List users
-o Get user
-o Create an account
- Given a user, create an account
- Should take into account the business requirements above
- Up to you to decide the appropriate fields to persist here
-o List Accounts
+**Create user**
+
+* Fields to be provided and persist
+* Name
+* Email Address (Must be unique)
+* Monthly Salary (Must be a positive number - for simplicity, pretend there is
+no such thing as income tax)
+* Monthly Expenses (Must be a positive number)
+
+**List users**
+
+**Get user**
+
+**Create an account**
+
+* Given a user, create an account
+* Should take into account the business requirements above
+* Up to you to decide the appropriate fields to persist here
+
+**List Accounts**
 
 2. Should be robust and include relevant response codes for different scenarios
 3. No need to implement any kind of auth for this test
